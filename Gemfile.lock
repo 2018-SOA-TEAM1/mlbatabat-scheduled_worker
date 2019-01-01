@@ -1,0 +1,59 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    aws-eventstream (1.0.1)
+    aws-partitions (1.127.0)
+    aws-sdk-core (3.44.1)
+      aws-eventstream (~> 1.0)
+      aws-partitions (~> 1.0)
+      aws-sigv4 (~> 1.0)
+      jmespath (~> 1.0)
+    aws-sdk-sqs (1.10.0)
+      aws-sdk-core (~> 3, >= 3.39.0)
+      aws-sigv4 (~> 1.0)
+    aws-sigv4 (1.0.3)
+    declarative (0.0.10)
+    declarative-option (0.1.0)
+    domain_name (0.5.20180417)
+      unf (>= 0.0.5, < 1.0.0)
+    econfig (2.1.0)
+    http (3.3.0)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 2.0)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.3)
+      domain_name (~> 0.5)
+    http-form_data (2.1.1)
+    http_parser.rb (0.6.0)
+    jmespath (1.4.0)
+    multi_json (1.13.1)
+    public_suffix (3.0.3)
+    representable (3.0.4)
+      declarative (< 0.1.0)
+      declarative-option (< 0.2.0)
+      uber (< 0.2.0)
+    roar (1.1.0)
+      representable (~> 3.0.0)
+    uber (0.1.0)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aws-sdk-sqs (~> 1)
+  econfig
+  http (~> 3.0)
+  multi_json
+  roar
+
+RUBY VERSION
+   ruby 2.5.1p57
+
+BUNDLED WITH
+   1.17.1
