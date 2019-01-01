@@ -9,6 +9,10 @@ USERNAME = 's5078345'
 IMAGE = 'mlbatbat-schedule_worker'
 VERSION = '0.1.0'
 
+task :default do
+  puts `rake -T`
+end
+
 desc 'Build Docker image'
 task :worker do
   require_relative './init.rb'

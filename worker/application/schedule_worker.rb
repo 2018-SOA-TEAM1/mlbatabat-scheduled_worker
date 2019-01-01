@@ -14,6 +14,8 @@ module MLBAtBat
     end
 
     def call
+      # Once schedule job on heroku
+      # Will poll all messages from SQS
       puts "Start Schedule worker. DateTime: #{Time.now}"
       search_all_team
       puts 'End Schedule worker'
@@ -25,8 +27,9 @@ module MLBAtBat
         schedule_request = Representer::ScheduleRequest
                            .new(OpenStruct.new)
                            .from_json(schedule_request_json)
-        print schedule_request.date
-        print schedule_request.game_pk
+        puts schedule_request.date
+        puts schedule_request.game_pk
+        puts 
 
         # call mlbatbat-api to update(?) particular game
         # not yet ... 

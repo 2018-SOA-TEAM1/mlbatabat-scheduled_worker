@@ -4,6 +4,9 @@ WORKDIR /worker
 
 COPY / .
 
+# update bundle
+RUN gem install bundler
+
 RUN bundle install
 
 CMD rake worker
