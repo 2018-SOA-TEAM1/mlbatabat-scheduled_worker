@@ -28,15 +28,17 @@ module MLBAtBat
         schedule_request = Representer::ScheduleRequest
                            .new(OpenStruct.new)
                            .from_json(schedule_request_json)
-        puts schedule_request.date
-        puts schedule_request.team_name
-        puts
+        date_api = split_date(schedule_request.date)
 
         # call mlbatbat-api to update particular game
         Gateway::Api.new(MLBAtBat::ScheduleWorker.config)
-                    .find_game_db(schedule_request.date,
+                    .find_game_db(date_api,
                                   schedule_request.team_name)
       end
+    end
+
+    def split_date(date)
+      date.split('/').join('_')
     end
   end
 end
