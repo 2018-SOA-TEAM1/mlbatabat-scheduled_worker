@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'rake/testtask'
+
 desc 'Run application console (pry)'
 task :console do
   sh 'pry -r ./init.rb'
@@ -13,10 +15,23 @@ task :default do
   puts `rake -T`
 end
 
-desc 'Build Docker image'
-task :worker do
-  require_relative './init.rb'
-  MLBAtBat::ScheduleWorker.new.call
+namespace :scheduler do
+  task :config do
+    require_relative 'config/environment.rb' # load config info
+    require_relative 'worker/infrastructure/cache/init.rb' # load cache client
+    @worker = MLBAtBat::ScheduleWorker
+    @config = @worker.config
+  end
+
+  desc 'Instruction for scheduler'
+  task :worker => :config do
+    require_relative './init.rb'
+    # clear cache
+    MLBAtBat::Cache::Client.new(@config).wipe
+    puts 'Clear cache on MLBAtBat.'
+    # call schedule worker
+    MLBAtBat::ScheduleWorker.new.call
+  end
 end
 
 # Docker tasks

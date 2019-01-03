@@ -18,3 +18,9 @@ gem 'roar'
 
 # prevent bundle inf problem
 gem 'unf'
+
+# APPLICATION LAYER
+gem 'rack-cache', '~> 1.8'
+gem 'redis', '~> 4.0'
+gem 'redis-rack-cache', '~> 2.0'
+gem 'roda', '~> 3.8'

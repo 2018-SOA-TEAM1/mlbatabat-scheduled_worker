@@ -31,12 +31,23 @@ GEM
     jmespath (1.4.0)
     multi_json (1.13.1)
     public_suffix (3.0.3)
+    rack (2.0.6)
+    rack-cache (1.8.0)
+      rack (>= 0.4)
+    redis (4.1.0)
+    redis-rack-cache (2.0.2)
+      rack-cache (>= 1.6, < 2)
+      redis-store (>= 1.2, < 2)
+    redis-store (1.6.0)
+      redis (>= 2.2, < 5)
     representable (3.0.4)
       declarative (< 0.1.0)
       declarative-option (< 0.2.0)
       uber (< 0.2.0)
     roar (1.1.0)
       representable (~> 3.0.0)
+    roda (3.15.0)
+      rack
     uber (0.1.0)
     unf (0.1.4)
       unf_ext
@@ -50,7 +61,12 @@ DEPENDENCIES
   econfig
   http (~> 3.0)
   multi_json
+  rack-cache (~> 1.8)
+  redis (~> 4.0)
+  redis-rack-cache (~> 2.0)
   roar
+  roda (~> 3.8)
+  unf
 
 RUBY VERSION
    ruby 2.5.1p57

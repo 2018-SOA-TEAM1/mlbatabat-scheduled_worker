@@ -29,7 +29,7 @@ module MLBAtBat
                            .from_json(schedule_request_json)
         puts schedule_request.date
         puts schedule_request.game_pk
-        puts 
+        puts
 
         # call mlbatbat-api to update(?) particular game
         # not yet ... 
