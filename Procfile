@@ -1,1 +1,1 @@
-web: rake schuduler:worker
+web: rake scheduler:worker

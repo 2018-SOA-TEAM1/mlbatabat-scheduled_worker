@@ -15,6 +15,9 @@ task :default do
   puts `rake -T`
 end
 
+# delete untagged image
+# docker image prune -f
+
 namespace :scheduler do
   task :config do
     require_relative 'config/environment.rb' # load config info

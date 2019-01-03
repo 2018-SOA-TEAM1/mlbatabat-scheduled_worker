@@ -10,7 +10,7 @@ module MLBAtBat
       include Roar::JSON
 
       property :date
-      property :game_pk
+      property :team_name
     end
   end
 end

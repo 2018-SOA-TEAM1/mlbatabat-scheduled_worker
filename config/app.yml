@@ -1,0 +1,6 @@
+---
+development:
+  API_HOST: https://mlbatbat-api.herokuapp.com
+
+production:
+  API_HOST: https://mlbatbat-api.herokuapp.com

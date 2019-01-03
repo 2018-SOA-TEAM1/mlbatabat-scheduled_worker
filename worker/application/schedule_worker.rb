@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative '../../init.rb'
+require_relative './mlb_at_bat_api.rb'
 require 'aws-sdk-sqs'
 
 module MLBAtBat
@@ -21,18 +22,20 @@ module MLBAtBat
       puts 'End Schedule worker'
     end
 
-    # schedule worker's jib
+    # schedule worker's job
     def search_all_team
       @queue.poll do |schedule_request_json|
         schedule_request = Representer::ScheduleRequest
                            .new(OpenStruct.new)
                            .from_json(schedule_request_json)
         puts schedule_request.date
-        puts schedule_request.game_pk
+        puts schedule_request.team_name
         puts
 
-        # call mlbatbat-api to update(?) particular game
-        # not yet ... 
+        # call mlbatbat-api to update particular game
+        Gateway::Api.new(MLBAtBat::ScheduleWorker.config)
+                    .find_game_db(schedule_request.date,
+                                  schedule_request.team_name)
       end
     end
   end
